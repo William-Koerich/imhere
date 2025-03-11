@@ -14,11 +14,15 @@ export function Home() {
       return Alert.alert("Participante existe", "Já existe um participante na lista com esse nome.");
     }
 
+    if (participantName === '') {
+        return Alert.alert("Ops :/", "É obrigatório informar um nome de participante")
+    }
+
     setParticipants(prevState => [...prevState, participantName]);
     setParticipantName('');
   }
 
-  function handleParticipantRemove(name: string) {
+  function handleParticipantRemove(name: string) {  
     Alert.alert("Remover", `Remover o participante ${name}?`, [
       {
         text: 'Sim',
